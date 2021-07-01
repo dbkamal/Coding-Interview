@@ -17,12 +17,14 @@ package Algorithm;
  * Check the reference online material for the details of the above function.
  *
  * O(log N)
+ *
+ * Author: Kamal Debnath
  */
 
 public class InterpolationSearch {
     public static void main(String[] args) {
         int[] arr = {1, 2, 5, 8, 11, 19};
-        int target = 200;
+        int target = 5;
         int index = interpolationSearch(arr, target);
 
         if (index >= 0)
@@ -34,12 +36,10 @@ public class InterpolationSearch {
     private static int interpolationSearch(int[] arr, int target) {
         int left = 0, right = arr.length - 1;
 
-        while (left <= right) {
+        while (left <= right && target >= arr[left] && target <= arr[right]) { // target must lie within array
             int pos = left + (target - arr[left]) * (right - left) / (arr[right] - arr[left]);
 
-            if (pos < 0 || pos >= arr.length) // check the extreme index value out the range
-                return -1;
-            else if (arr[pos] == target)
+            if (arr[pos] == target)
                 return pos;
             else if (arr[pos] > target)
                 right = pos - 1;

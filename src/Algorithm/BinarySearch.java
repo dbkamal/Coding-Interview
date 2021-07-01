@@ -9,13 +9,15 @@ package Algorithm;
  * or recursively find the middle element and if the middle element is target and then return the index,
  * or if the middle element is larger than target then check the left side otherwise check right side.
  * O(log N)
+ *
+ * Author: Kamal Debnath
  */
 
 public class BinarySearch {
     public static void main(String[] args) {
         int[] arr = {1, 2, 5, 8, 11, 19};
         int target = 19;
-        int index = binarySearch(arr, target);
+        int index = binarySearch(arr, target, 0, arr.length - 1);
 
         // Iterative Solution
         if (index >= 0)
@@ -31,9 +33,8 @@ public class BinarySearch {
             System.out.println(target + " is not present in the array");
     }
 
-    private static int binarySearch(int[] arr, int target) {
-
-        int left = 0, right = arr.length - 1;
+    // update the method signature
+    public static int binarySearch(int[] arr, int target, int left, int right) {
 
         while (left <= right) {
             int middle = left + (right - left) / 2; // avoid left + right overflow from INT boundary
