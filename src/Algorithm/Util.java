@@ -13,4 +13,11 @@ public class Util {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
+    // reverse array in-place within the range of [left .. right]
+    public static void reverseArray(int[] arr, int left, int right) {
+        while (left < right) {
+            swap(arr, left++, right--);
+        }
+    }
 }
