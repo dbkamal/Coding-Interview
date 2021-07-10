@@ -32,7 +32,8 @@ public class SegmentTree {
     public static void main(String[] args) {
         int[] arr = {1,2,3,4};
         int len = arr.length - 1;
-        tree = new int[(int) Math.pow(2, len)];
+        // tree = new int[(int) Math.pow(2, len)];
+        tree = new int[(len + 1)* 2];
         buildSegmentTree(arr, 0, 0, len);
 
         System.out.println("Segment Tree");
